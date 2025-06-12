@@ -1,4 +1,47 @@
+
+body {
+  line-height: 1.5;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  color: black;
+  border-bottom: 3px solid black;
+  padding-bottom: 15px;
+}
+
+h2 {
+  color: navy;
+  margin-top: 30px;
+  border-left: 5px solid navy;
+  padding-left: 10px;
+}
+
+h3 {
+  color: rgb(22, 40, 182);
+  margin-top: 20px;
+  padding-left: 5px;
+  border-left: 3px solid rgb(22, 40, 182);
+}
+
 p {
-	color: navy;
+	color: black;
+}
+
+a{
+	text-decoration: none;
+}
+
+a:link{
+  color: #0080ff;
+}
+
+a:visited {
+  color: purple;      
+}
+
+a:hover{
+  text-decoration: underline;
 }
 
