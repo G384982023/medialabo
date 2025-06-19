@@ -1,0 +1,23 @@
+body {
+  font-family: "Helvetica", sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+  background-color: white;
+  color: gray;
+}
+
+h1, h2, h3 {
+  color: navy;
+}
+
+ul {
+  background: white;
+  border: 1px solid gray;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+li {
+  margin: 5px 0;
+}
