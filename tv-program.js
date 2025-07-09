@@ -13,9 +13,54 @@ function print(data) {
 }
 
 // 課題5-1 の関数 printDom() はここに記述すること
+
 function printDom(data) {
 
+  let resultDiv = document.createElement('div');
+  resultDiv.id = 'result';
+  document.body.insertAdjacentElement('beforeend', resultDiv);
+
+  let programs = data.list.g1;
+
+  for (let i = 0; i < programs.length; i++) {
+    let p = programs[i];
+
+    // 見出し h2 を作成
+    let h2 = document.createElement('h2');
+    h2.textContent = "検索結果 " + (i + 1) + " 件目";
+    resultDiv.insertAdjacentElement('beforeend', h2);
+
+    // ul 要素を作成して、各項目を li として追加
+    let ul = document.createElement('ul');
+
+    let li1 = document.createElement('li');
+    li1.textContent = "開始時刻：" + p.start_time;
+    ul.insertAdjacentElement('beforeend', li1);
+
+    let li2 = document.createElement('li');
+    li2.textContent = "終了時刻：" + p.end_time;
+    ul.insertAdjacentElement('beforeend', li2);
+
+    let li3 = document.createElement('li');
+    li3.textContent = "タイトル：" + p.title;
+    ul.insertAdjacentElement('beforeend', li3);
+
+    let li4 = document.createElement('li');
+    li4.textContent = "サブタイトル：" + p.subtitle;
+    ul.insertAdjacentElement('beforeend', li4);
+
+    let li5 = document.createElement('li');
+    li5.textContent = "番組説明：" + p.content;
+    ul.insertAdjacentElement('beforeend', li5);
+
+    let li6 = document.createElement('li');
+    li6.textContent = "出演者：" + p.act;
+    ul.insertAdjacentElement('beforeend', li6);
+
+    resultDiv.insertAdjacentElement('beforeend', ul);
+  }
 }
+
 
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
 
