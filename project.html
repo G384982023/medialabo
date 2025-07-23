@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>オブジェクト課題</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
 	<link rel="stylesheet" href="project.css">
 	<script src="tv-program.js" defer></script>
   </head>
@@ -10,9 +11,33 @@
 
   <h1>番組表の検索結果</h1>
 
-  <input type="text" name="hyouji" size="10" id="hyouji">
-	<button id="print">表示</button>
-    <h3>NHKの番組表</h3>
+  <label for="service">チャンネル</label>
+<select id="service">
+  <option value="g1">NHK総合1</option>
+  <option value="e1">Eテレ1</option>
+</select>
+
+<br>
+
+<label for="genre">ジャンル</label>
+<select id="genre">
+  <option value="0000">ニュース・報道</option>
+  <option value="0100">スポーツ</option>
+  <option value="0205">情報・ワイドショー</option>
+  <option value="0300">ドラマ</option>
+  <option value="0409">音楽</option>
+  <option value="0502">バラエティ</option>
+  <option value="0600">映画</option>
+  <option value="0700">アニメ</option>
+  <option value="0800">ドキュメンタリー・教養</option>
+  <option value="0903">劇場・公演</option>
+  <option value="1000">趣味・教育</option>
+  <option value="1100">福祉</option>
+</select>
+
+<br>
+<button id="search">検索</button>
+
 	<!--
 	    <h2>検索結果１件目</h2>
 		    <ul>

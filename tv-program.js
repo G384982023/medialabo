@@ -1,7 +1,18 @@
 
 // 課題3-2 のプログラムはこの関数の中に記述すること
 function print(data) {
-  let programs = data.list.g1;
+  if (!data.list) {
+    console.log("該当する番組は見つかりませんでした。");
+    return;
+  }
+
+  let service = document.querySelector('#service').value;
+  let programs = data.list[service];
+
+  if (!programs) {
+    console.log("該当する番組は見つかりませんでした。");
+    return;
+  }
   for (let program of programs) {
     console.log("タイトル: " + program.title);
     console.log("サブタイトル: " + program.subtitle);
@@ -16,12 +27,29 @@ function print(data) {
 
 function printDom(data) {
 
+  // 前回の検索結果を削除
+  let old = document.querySelector('#result');
+  if (old !== null) {
+    old.remove();
+  }
+
   let resultDiv = document.createElement('div');
   resultDiv.id = 'result';
   document.body.insertAdjacentElement('beforeend', resultDiv);
 
-  let programs = data.list.g1;
+  if (!data.list) {
+    resultDiv.textContent = '該当する番組は見つかりませんでした。';
+    return;
+  }
 
+  //let programs = data.list.g1;
+  let programs = data.list.g1 || data.list.e1;
+
+  if (!programs || programs.length === 0) {
+    resultDiv.textContent = '該当する番組は見つかりませんでした。';
+    return;
+  }
+  
   for (let i = 0; i < programs.length; i++) {
     let p = programs[i];
 
@@ -59,22 +87,44 @@ function printDom(data) {
 
     resultDiv.insertAdjacentElement('beforeend', ul);
   }
+
 }
 
 
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
-
-
+let b = document.querySelector('#search');
+b.addEventListener('click', sendRequest);
 
 
 // 課題6-1 のイベントハンドラ sendRequest() の定義
 function sendRequest() {
+  let service = document.querySelector('#service').value;
+  let genre = document.querySelector('#genre').value;
 
+// URL を設定
+    let url = 'https://www.nishita-lab.org/web-contents/jsons/nhk/'+service+'-'+genre+'-j.json';
+
+    // 通信開始
+    axios.get(url)
+        .then(showResult)   // 通信成功
+        .catch(showError)   // 通信失敗
+        .then(finish);      // 通信の最後の処理
 }
 
 // 課題6-1: 通信が成功した時の処理は以下に記述
 function showResult(resp) {
+// サーバから送られてきたデータを出力
+    let data = resp.data;
 
+    // data が文字列型なら，オブジェクトに変換する
+    if (typeof data === 'string') {
+        data = JSON.parse(data);
+    }
+
+    // data をコンソールに出力
+    console.log(data);
+    print(data);
+    printDom(data);  
 }
 
 // 課題6-1: 通信エラーが発生した時の処理
@@ -91,6 +141,7 @@ function finish() {
 // 以下はテレビ番組表のデータサンプル
 // 注意: 第5回までは以下を変更しないこと！
 // 注意2: 課題6-1 で以下をすべて削除すること
+/*
 let data = {
   "list": {
     "g1": [
@@ -171,4 +222,4 @@ let data = {
     ]
   }
 };
-
+*/

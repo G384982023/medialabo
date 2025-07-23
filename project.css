@@ -1,12 +1,69 @@
 body {
   font-family: "Helvetica", sans-serif;
   line-height: 1.6;
-  padding: 20px;
+  padding: 30px;
   background-color: white;
+  color: black;
 }
 
-h1, h2, h3 {
+h1 {
   color: navy;
+  text-align: center;
+  border-bottom: 2px solid navy;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
 }
 
+label {
+  font-weight: bold;
+  color: navy;
+  display: inline-block;
+  width: 100px;
+  margin-top: 10px;
+}
 
+select {
+  padding: 5px;
+  border: 1px solid navy;
+  border-radius: 4px;
+  background-color: white;
+  color: black;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: navy;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: white;
+  color: navy;
+  border: 1px solid navy;
+}
+
+h2 {
+  color: navy;
+  margin-top: 30px;
+  border-left: 5px solid navy;
+  padding-left: 10px;
+}
+
+ul {
+  background-color: white;
+  border: 1px solid navy;
+  padding: 15px;
+  border-radius: 6px;
+  list-style-type: none;
+  margin-bottom: 20px;
+}
+
+li {
+  margin-bottom: 5px;
+}
